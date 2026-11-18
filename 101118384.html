@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    name="description"
+    content="The personal microsite of Max Kanaki, a front-end developer focused on accessibility."
+  >
+  <meta name="theme-color" content="#f5f3ed">
+  <title>Max Kanaki — Front-end Developer</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f3ed;
+      --ink: #172b27;
+      --muted: #53635e;
+      --green: #245c4a;
+      --green-dark: #194637;
+      --line: #d9ded6;
+      --card: #fffefa;
+      --accent: #e7a66b;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+      padding: 0.65rem 1rem;
+      transform: translateY(-160%);
+      background: var(--ink);
+      color: white;
+      border-radius: 6px;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .page-shell {
+      width: min(calc(100% - 2.5rem), var(--max-width));
+      margin-inline: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .wordmark {
+      color: var(--green-dark);
+      font-weight: 750;
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--green-dark);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      padding-block: clamp(5rem, 12vw, 9rem);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      right: 4%;
+      top: 18%;
+      z-index: -1;
+      border: 1px solid #d4dfd2;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 30px var(--paper),
+        0 0 0 31px #d4dfd2,
+        0 0 0 75px var(--paper),
+        0 0 0 76px #d4dfd2;
+      opacity: 0.7;
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 1.25rem;
+      font-size: clamp(3rem, 8vw, 6.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+    }
+
+    .hero-copy {
+      max-width: 580px;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.7rem 1.15rem;
+      background: var(--green);
+      color: white;
+      border: 2px solid var(--green);
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding-block: clamp(3.5rem, 8vw, 6rem);
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      margin-bottom: 0.75rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      min-height: 190px;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .card-number {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      color: var(--green);
+      font-size: 0.85rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+    }
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    footer {
+      padding-block: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding-block: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      .hero::after {
+        width: 180px;
+        height: 180px;
+        right: -8%;
+        top: 12%;
+        opacity: 0.45;
+      }
+
+      .cards,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        gap: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="page-shell topbar">
+      <a class="wordmark" href="#home" aria-label="Max Kanaki, home">MK.</a>
+
+      <nav aria-label="Main navigation">
+        <a href="#focus">What I do</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero page-shell" id="home" aria-labelledby="intro-title">
+      <p class="eyebrow">Max Kanaki · Front-end developer</p>
+      <h1 id="intro-title">Making the web easier for everyone to use.</h1>
+      <p class="hero-copy">
+        I’m Max, a front-end developer focused on accessibility and thoughtful
+        digital experiences.
+      </p>
+      <a class="button" href="#about">Get to know me</a>
+    </section>
+
+    <section class="section" id="focus" aria-labelledby="focus-title">
+      <div class="page-shell">
+        <div class="section-heading">
+          <p class="eyebrow">My focus</p>
+          <h2 id="focus-title">Good experiences include everyone.</h2>
+          <p class="section-intro">
+            I care about the details that make websites clearer, more usable,
+            and more welcoming.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="card-number">01</span>
+            <h3>Accessibility</h3>
+            <p>Designing and building with different people and ways of using
+              the web in mind.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-number">02</span>
+            <h3>Front-end development</h3>
+            <p>Turning ideas and designs into responsive, reliable web
+              experiences.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-number">03</span>
+            <h3>Thoughtful design</h3>
+            <p>Paying attention to the small choices that help a page feel
+              clear and easy to navigate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="page-shell about">
+        <div>
+          <p class="eyebrow">A little about me</p>
+          <h2 id="about-title">Hi, I’m Max.</h2>
+        </div>
+        <div>
+          <p>
+            I’m a front-end developer who cares about making digital
+            experiences work well for people. Accessibility is a central part
+            of how I think about the web, from the structure of a page to the
+            way someone moves through it.
+          </p>
+          <p>
+            This microsite is a small introduction to what I do and what I
+            value. I’m glad you stopped by.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-shell">
+      <p>© <span id="year">2026</span> Max Kanaki</p>
+    </div>
+  </footer>
+</body>
+</html>
