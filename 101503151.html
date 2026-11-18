@@ -1,0 +1,536 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Emma's Creative Corner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --burgundy: #682139;
+            --pink: #FFB8B8;
+            --blue: #B9D8FA;
+            --orange: #FF4F19;
+            --cream: #F8EFE6;
+            --yellow: #D2C65F;
+            --muted: #805D68;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--burgundy);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .page {
+            width: min(1150px, calc(100% - 48px));
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(104, 33, 57, 0.15);
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            text-decoration: none;
+            color: var(--burgundy);
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-link {
+            text-decoration: none;
+            background: var(--pink);
+            color: var(--burgundy);
+            padding: 12px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--burgundy);
+            color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        /* Main layout */
+
+        main {
+            min-height: calc(100vh - 150px);
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 65px;
+            padding: 75px 0;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--orange);
+        }
+
+        h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(4rem, 8vw, 7rem);
+            line-height: 0.98;
+            letter-spacing: -0.075em;
+            margin: 25px 0;
+        }
+
+        .highlight {
+            color: var(--orange);
+        }
+
+        .intro {
+            max-width: 520px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        /* Interest tags */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            border: 1px solid var(--burgundy);
+            padding: 10px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .tag:nth-child(2) {
+            background: var(--pink);
+        }
+
+        .tag:nth-child(4) {
+            background: var(--blue);
+        }
+
+        .tag:hover {
+            background: var(--yellow);
+            transform: rotate(-3deg);
+        }
+
+        /* Interactive card */
+
+        .creative-card {
+            background: var(--burgundy);
+            border-radius: 32px;
+            padding: 30px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .creative-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-label {
+            color: var(--cream);
+            font-size: 0.74rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Star illustration */
+
+        .star-area {
+            height: 170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .star {
+            width: 155px;
+            height: 155px;
+            transition: transform 0.35s ease;
+        }
+
+        .star:hover {
+            transform: rotate(15deg) scale(1.08);
+        }
+
+        .star-body {
+            fill: var(--pink);
+        }
+
+        .star-face {
+            fill: var(--burgundy);
+            stroke: var(--burgundy);
+        }
+
+        /* Text panel */
+
+        .thought-panel {
+            background: var(--pink);
+            border-radius: 20px;
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thought-label {
+            color: var(--burgundy);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .thought-panel h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            line-height: 1.12;
+            letter-spacing: -0.05em;
+            color: var(--burgundy);
+            margin: 0;
+            overflow-wrap: break-word;
+        }
+
+        /* Interactive button */
+
+        .shuffle {
+            align-self: flex-start;
+            background: var(--orange);
+            color: var(--cream);
+            border: none;
+            border-radius: 100px;
+            padding: 14px 22px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .shuffle:hover {
+            background: var(--blue);
+            color: var(--burgundy);
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 28px 0;
+            border-top: 1px solid rgba(104, 33, 57, 0.15);
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        footer strong {
+            color: var(--burgundy);
+        }
+
+        /* Animations */
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .star {
+                animation: float 4s ease-in-out infinite;
+            }
+
+            .star:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        /* Responsive */
+
+        @media (max-width: 850px) {
+            main {
+                grid-template-columns: 1fr;
+                gap: 45px;
+                padding: 55px 0;
+            }
+
+            h1 {
+                font-size: clamp(3.8rem, 13vw, 6rem);
+            }
+
+            .creative-card {
+                min-height: 470px;
+            }
+
+            .thought-panel h2 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page {
+                width: calc(100% - 32px);
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 10px 12px;
+            }
+
+            .creative-card {
+                padding: 22px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <nav aria-label="Primary navigation">
+
+            <a class="logo" href="./101503151.html">
+                emma<span>✳</span>
+            </a>
+
+            <a class="nav-link" href="./list.html">
+                BDES4702 Cohort ↗
+            </a>
+
+        </nav>
+
+        <main>
+
+            <!-- Introduction -->
+
+            <section aria-labelledby="welcome-title">
+
+                <p class="eyebrow">
+                    A little corner of the internet
+                </p>
+
+                <h1 id="welcome-title">
+                    Hey, I'm<br>
+                    <span class="highlight">Emma.</span>
+                </h1>
+
+                <p class="intro">
+                    Designer, maker, and someone who's always
+                    got another idea on the go. I love exploring
+                    the space between creativity and technology,
+                    trying new things, and seeing where curiosity
+                    takes me.
+                </p>
+
+                <div class="tags" aria-label="My interests">
+                    <span class="tag">✳ Design</span>
+                    <span class="tag">↗ Making things</span>
+                    <span class="tag">✦ Creativity + tech</span>
+                    <span class="tag">♡ Outdoors</span>
+                    <span class="tag">☼ New ideas</span>
+                </div>
+
+            </section>
+
+            <!-- Interactive creative card -->
+
+            <aside class="creative-card" aria-label="Creative interests">
+
+                <div class="card-top">
+                    <span class="card-label">
+                        What's on my mind?
+                    </span>
+
+                    <span class="card-label">✳ 01</span>
+                </div>
+
+                <!-- Smiling star illustration -->
+
+                <div class="star-area">
+
+                    <svg class="star"
+                         viewBox="0 0 200 200"
+                         xmlns="http://www.w3.org/2000/svg"
+                         role="img"
+                         aria-label="A smiling pink star">
+
+                        <!-- Star shape -->
+                        <path class="star-body"
+                            d="M100 15
+                            C110 15 116 48 124 55
+                            C134 58 160 38 169 48
+                            C178 57 153 80 156 91
+                            C160 101 190 109 188 121
+                            C186 133 151 131 145 140
+                            C139 150 150 180 139 186
+                            C127 192 111 162 100 162
+                            C89 162 72 192 61 185
+                            C50 178 63 148 55 140
+                            C47 132 14 134 12 121
+                            C10 108 41 101 44 90
+                            C47 79 22 57 31 48
+                            C40 38 67 58 76 54
+                            C85 47 90 15 100 15Z"/>
+
+                        <!-- Eyes -->
+                        <ellipse cx="84" cy="101" rx="4" ry="7"
+                            class="star-face"/>
+
+                        <ellipse cx="116" cy="101" rx="4" ry="7"
+                            class="star-face"/>
+
+                        <!-- Smile -->
+                        <path d="M86 119 Q100 135 114 119"
+                            fill="none"
+                            stroke="#682139"
+                            stroke-width="5"
+                            stroke-linecap="round"/>
+
+                        <!-- Legs -->
+                        <path d="M82 163 Q72 180 76 190"
+                            fill="none"
+                            stroke="#FFB8B8"
+                            stroke-width="7"
+                            stroke-linecap="round"/>
+
+                        <path d="M119 163 Q130 178 125 190"
+                            fill="none"
+                            stroke="#FFB8B8"
+                            stroke-width="7"
+                            stroke-linecap="round"/>
+
+                    </svg>
+
+                </div>
+
+                <!-- Changing thought -->
+
+                <div class="thought-panel" aria-live="polite">
+
+                    <span class="thought-label">
+                        Currently into...
+                    </span>
+
+                    <h2 id="idea">
+                        Finding inspiration in unexpected places.
+                    </h2>
+
+                </div>
+
+                <button class="shuffle" id="shuffle-button" type="button">
+                    Another thought ↗
+                </button>
+
+            </aside>
+
+        </main>
+
+        <footer>
+            <span>© 2026 Emma · Made with curiosity</span>
+            <span><strong>BDES4702</strong> · Always a work in progress ✳</span>
+        </footer>
+
+    </div>
+
+    <script>
+        const ideas = [
+            "Finding inspiration in unexpected places.",
+            "Making things just to see if I can.",
+            "Turning random ideas into real things.",
+            "Learning something completely new.",
+            "Exploring design beyond the screen.",
+            "Starting another creative side quest.",
+            "Figuring it out as I go."
+        ];
+
+        const ideaElement = document.getElementById("idea");
+        const shuffleButton = document.getElementById("shuffle-button");
+
+        let currentIdea = 0;
+
+        shuffleButton.addEventListener("click", function () {
+            currentIdea = (currentIdea + 1) % ideas.length;
+            ideaElement.textContent = ideas[currentIdea];
+        });
+    </script>
+
+</body>
+</html>
