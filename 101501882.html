@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey, I'm Eira!</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f0e8;
+            color: #25251f;
+            font-family: 'Space Grotesk', sans-serif;
+            padding: 25px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0 25px;
+            border-bottom: 1px solid #25251f;
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+        }
+
+        nav a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 78vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding: 70px 5%;
+            overflow: hidden;
+        }
+
+        .eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: #777267;
+        }
+
+        h1 {
+            font-size: clamp(75px, 14vw, 180px);
+            line-height: 0.85;
+            letter-spacing: -10px;
+            font-weight: 700;
+        }
+
+        h1 span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #e46f4e;
+            font-weight: 700;
+        }
+
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-top: 55px;
+            gap: 30px;
+        }
+
+        .intro {
+            max-width: 380px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .stamp {
+            border: 1px solid #25251f;
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transform: rotate(12deg);
+            font-size: 11px;
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #dce5d4;
+            border-radius: 4px;
+            padding: 70px 7%;
+            margin-top: 30px;
+        }
+
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        .about h2 {
+            font-size: clamp(35px, 6vw, 65px);
+            max-width: 750px;
+            line-height: 1.1;
+            letter-spacing: -3px;
+        }
+
+        .about h2 span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #e46f4e;
+        }
+
+        /* INTERESTS */
+        .interests {
+            padding: 90px 5%;
+        }
+
+        .interests h2 {
+            font-size: 55px;
+            letter-spacing: -3px;
+            margin-bottom: 35px;
+        }
+
+        .interest-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .interest {
+            background: #fffdf7;
+            padding: 30px;
+            min-height: 140px;
+            border: 1px solid #ded9cf;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .interest:hover {
+            background: #e46f4e;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .interest .number {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+        }
+
+        .interest h3 {
+            font-size: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #25251f;
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                letter-spacing: -5px;
+            }
+
+            .hero-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .interest-list {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                gap: 15px;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">EIRA®</a>
+        <a href="#about">ABOUT</a>
+        <a href="#interests">MY WORLD</a>
+        <span>TORONTO, CANADA ↗</span>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">A LITTLE SPACE ON THE INTERNET — EST. 2026</p>
+
+            <h1>
+                HELLO,<br>
+                I'M <span>Eira.</span>
+            </h1>
+
+            <div class="hero-bottom">
+                <p class="intro">
+                    Designer, curious thinker, and professional
+                    overthinker. I enjoy turning random ideas into
+                    something real. Welcome to my little corner
+                    of the internet!
+                </p>
+
+                <div class="stamp">
+                    MADE OF<br>
+                    CURIOSITY<br>
+                    & IDEAS ✳
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <p class="section-label">01 / GET TO KNOW ME</p>
+
+            <h2>
+                I'm a creative person who loves
+                exploring the space between
+                <span>design, technology,</span>
+                and everyday life.
+            </h2>
+        </section>
+
+        <section class="interests" id="interests">
+            <p class="section-label">02 / THINGS THAT MAKE ME, ME</p>
+            <h2>My little universe.</h2>
+
+            <div class="interest-list">
+                <div class="interest">
+                    <span class="number">01 / CREATIVE</span>
+                    <h3>Design & Art ↗</h3>
+                </div>
+
+                <div class="interest">
+                    <span class="number">02 / DIGITAL</span>
+                    <h3>Gaming & Tech ↗</h3>
+                </div>
+
+                <div class="interest">
+                    <span class="number">03 / HANDS-ON</span>
+                    <h3>Crafting & Making ↗</h3>
+                </div>
+
+                <div class="interest">
+                    <span class="number">04 / OUT THERE</span>
+                    <h3>Exploring & Travel ↗</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span>© 2026 EIRA</span>
+        <span>MADE WITH CURIOSITY & A LITTLE CHAOS ✳</span>
+        <span>THANKS FOR STOPPING BY!</span>
+    </footer>
+
+</body>
+</html>
