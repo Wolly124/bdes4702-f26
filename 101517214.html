@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Kim | Personal Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: white;
+        }
+
+        nav h2 {
+            font-size: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #64748b;
+            max-width: 500px;
+        }
+
+        .hero a {
+            margin-top: 25px;
+            padding: 12px 28px;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .hero a:hover {
+            background-color: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Chris Kim.</h2>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="mailto:chris@example.com">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Hello, I'm Chris Kim.</h1>
+
+        <p>
+            Welcome to my personal website.
+            I'm glad you're here. Feel free to explore
+            and learn a little more about me.
+        </p>
+
+        <a href="#about">Learn More</a>
+    </section>
+
+    <section id="about" style="text-align:center; padding: 50px 20px;">
+        <h2>About Me</h2>
+        <p style="color:#64748b; margin-top:10px;">
+            More about Chris coming soon.
+        </p>
+    </section>
+
+    <footer>
+        © 2026 Chris Kim. All rights reserved.
+    </footer>
+
+</body>
+</html>
